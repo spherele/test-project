@@ -1,0 +1,7 @@
+@use 'global/variables' as *;
+@use 'global/header' as *;
+@use 'global/footer' as *;
+@use 'global/main' as *;
+
+@use 'about/_about' as about;
+@use 'services/_services' as services;

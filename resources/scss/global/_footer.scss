@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+.site-footer {
+    background-color: $footer-bg-color;
+    color: $footer-text-color;
+    padding: 20px 0;
+    text-align: center;
+    flex-shrink: 0;
+
+    .container {
+        max-width: $max-width;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: $footer-link-color;
+    }
+
+    &__links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 15px 0 0 0;
+        padding: 0;
+
+        li {
+            a {
+                color: $footer-text-color;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $footer-link-hover-color;
+                }
+            }
+        }
+    }
+}

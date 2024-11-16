@@ -1,0 +1,109 @@
+@use 'variables' as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.site-main {
+    padding: 30px 15px;
+    background-color: $background-color;
+    color: $text-color-main;
+    flex: 1;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        @apply flex flex-col content-center text-center
+    }
+
+    .features {
+        display: flex;
+        gap: 20px;
+        justify-content: space-around;
+        margin-top: 30px;
+
+        .feature {
+            flex: 1;
+            padding: 15px;
+            background-color: $feature-bg-color;
+            border: 1px solid $border-color;
+            border-radius: 5px;
+            text-align: center;
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .cta {
+        text-align: center;
+        margin-top: 30px;
+
+        .btn {
+            padding: $cta-btn-padding;
+            background-color: $primary-color;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: $primary-color-hover;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-lg) {
+    .site-main {
+        .features {
+            flex-direction: column;
+            gap: 30px;
+
+            .feature {
+                flex: none;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    .site-main {
+        .features {
+            gap: 20px;
+
+            .feature {
+                width: 100%;
+            }
+        }
+    }
+}
