@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/scss/app.scss',
                 'resources/js/app.js',
                 'resources/js/yandex-map.js',
+                'resources/js/swiper.js',
             ],
             refresh: true,
         }),

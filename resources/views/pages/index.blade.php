@@ -1,20 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="site-main__title">
-        <h1>Добро пожаловать в мой сайт!</h1>
-        <p>Это основная секция, куда можно добавить любой контент.</p>
+
+    <div class="content-slider">
+        @php
+            $firstIndexImages = isset($indices[0]) ? json_decode($indices[0]->images, true) : [];
+        @endphp
+
+        @if($firstIndexImages)
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach($firstIndexImages as $key => $image)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $image) }}" alt="slide : {{ $key }}">
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        @endif
     </div>
 
-    <section class="features">
-        <article class="feature">
-            <h2>Функция 1</h2>
-            <p>Описание функции 1.</p>
-        </article>
-        <article class="feature">
-            <h2>Функция 2</h2>
-            <p>Описание функции 2.</p>
-        </article>
-    </section>
-@endsection
+    @foreach($indices as $index)
+        <div class="container">
+            <div class="content-text">
+                <h1>{{ $index->title }}</h1>
+                <h2>{{ $index->description }}</h2>
 
+                <p>{{ $index->excerpt }}</p>
+
+                {!! $index->body !!}
+
+                <img src="{{ asset('storage/' . $index->image) }}" alt="">
+            </div>
+        </div>
+    @endforeach
+
+    @push('scripts')
+        @vite('resources/js/swiper.js')
+    @endpush
+@endsection

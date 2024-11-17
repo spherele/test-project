@@ -15,7 +15,7 @@ html, body {
 
 
 .site-main {
-    padding: 30px 15px;
+    padding: 0 0 30px 0;
     background-color: $background-color;
     color: $text-color-main;
     flex: 1;
@@ -23,6 +23,7 @@ html, body {
     .container {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 30px 15px;
     }
 
     h1 {
@@ -107,3 +108,40 @@ html, body {
         }
     }
 }
+
+.content-slider {
+    position: relative;
+}
+
+.swiper-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.swiper-slide {
+    max-width: 1200px;
+
+    & > img {
+        width: 100% !important;
+        max-width: 1200px;
+        min-height: 675px;
+        max-height: 675px;
+    }
+}
+
+@media (max-width: $breakpoint-lg) {
+    .swiper-slide {
+        max-width: 1200px;
+
+        & > img {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 475px;
+            max-height: 475px;
+            object-fit: cover;
+        }
+    }
+}
+
